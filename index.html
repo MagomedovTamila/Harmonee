@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARMONEE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: white;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: black;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+
+        .navbar-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .navbar-right {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        /* PAGES */
+        .page {
+            display: none;
+            min-height: calc(100vh - 80px);
+            padding: 40px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* HOME PAGE */
+        .home-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .home-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: black;
+        }
+
+        /* ARTISTS SECTION (TOP 3 SQUARE CARDS) */
+        .artists-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .artist-card {
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 250px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .artist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .artist-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .artist-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        /* FEATURE CARD (PROFILE CARD) */
+        .feature-card {
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto 50px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-card-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 15px;
+        }
+
+        .feature-card-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .feature-card-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .feature-button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .feature-button:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+
+        /* FAVORITE SONGS SECTION (BOTTOM 3 SQUARE CARDS) */
+        .favorite-songs-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .song-card {
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 250px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .song-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .song-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .song-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+        }
+
+        /* REVIEWS SECTION */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .review-card {
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .review-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        .review-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .review-rating {
+            display: inline-block;
+            background-color: black;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* PAGE TITLE */
+        .page-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* BACK BUTTON */
+        .back-button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-logo" onclick="showPage('home')">HARMONEE</div>
+        <div class="navbar-center">
+            <button class="nav-button" onclick="showPage('search')">SEARCH</button>
+        </div>
+        <div class="navbar-right">
+            <button class="nav-button" onclick="showPage('profile')">PROFILE</button>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active home-page">
+        <h1 class="home-title">Bienvenue sur HARMONEE</h1>
+        <p style="font-size: 18px; color: #666;">Découvrez et notez vos musiques préférées</p>
+    </div>
+
+    <!-- SEARCH PAGE -->
+    <div id="search" class="page">
+        <h2 class="page-title">SEARCH</h2>
+        <p style="text-align: center; color: #666; font-size: 18px;">Recherchez vos musiques préférées</p>
+    </div>
+
+    <!-- PROFILE PAGE -->
+    <div id="profile" class="page">
+        <h2 class="page-title">PROFILE</h2>
+        
+        <!-- TOP 3 ARTISTS (SQUARE CARDS) -->
+        <div class="artists-section">
+            <div class="artist-card">
+                <img src="Korn.jpg" alt="Korn" class="artist-image">
+                <div class="artist-name">Korn</div>
+            </div>
+            <div class="artist-card">
+                <img src="Sade.jpg" alt="Sade" class="artist-image">
+                <div class="artist-name">Sade</div>
+            </div>
+            <div class="artist-card">
+                <img src="Massive_Attack.jpg" alt="Massive Attack" class="artist-image">
+                <div class="artist-name">Massive Attack</div>
+            </div>
+        </div>
+
+        <!-- FEATURE CARD (PROFILE INFO) -->
+        <div class="feature-card">
+            <div class="feature-card-name">Mila</div>
+            <div class="feature-card-description">
+                Amatrice de musique qui a beaucoup trop de sons favoris
+            </div>
+            <div class="feature-card-buttons">
+                <button class="feature-button" onclick="showPage('reviews')">REVIEWS</button>
+                <button class="feature-button" onclick="alert('Following feature coming soon!')">FOLLOWING</button>
+            </div>
+        </div>
+
+        <!-- BOTTOM 3 FAVORITE SONGS (SQUARE CARDS) -->
+        <div class="favorite-songs-section">
+            <div class="song-card">
+                <img src="Oh_Honey.jpg" alt="Oh Honey" class="song-image">
+                <div class="song-title">Oh Honey</div>
+            </div>
+            <div class="song-card">
+                <img src="Space_Song.jpg" alt="Space Song" class="song-image">
+                <div class="song-title">Space Song</div>
+            </div>
+            <div class="song-card">
+                <img src="Twilight.jpg" alt="Twilight" class="song-image">
+                <div class="song-title">Twilight</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REVIEWS PAGE -->
+    <div id="reviews" class="page">
+        <button class="back-button" onclick="showPage('profile')">← Retour au profil</button>
+        <h2 class="page-title">MES REVIEWS</h2>
+        
+        <div class="reviews-grid">
+            <!-- Review Card 1 -->
+            <div class="review-card">
+                <img src="https://i.pinimg.com/736x/86/b1/ac/86b1ac7119826ae3f5700e73580d1569.jpg" alt="Song 1" class="review-image">
+                <div class="review-title">Titre de la musique 1</div>
+                <div class="review-description">
+                    C'est une chanson incroyable qui m'accompagne tous les jours. Les paroles sont profondes et la mélodie est envoûtante.
+                </div>
+                <div class="review-rating">9/10</div>
+            </div>
+
+            <!-- Review Card 2 -->
+            <div class="review-card">
+                <img src="https://i.pinimg.com/736x/b2/7f/dd/b27fdd11e7112e11a098bcb55e3bd737.jpg" alt="Song 2" class="review-image">
+                <div class="review-title">Titre de la musique 2</div>
+                <div class="review-description">
+                    Un classique intemporel qui ne vieillit jamais. Chaque écoute me donne des frissons.
+                </div>
+                <div class="review-rating">10/10</div>
+            </div>
+
+            <!-- Review Card 3 -->
+            <div class="review-card">
+                <img src="https://i.pinimg.com/736x/ac/20/7f/ac207f7b91907b3729b885fd7b552bc3.jpg" alt="Song 3" class="review-image">
+                <div class="review-title">Titre de la musique 3</div>
+                <div class="review-description">
+                    Une découverte récente que j'adore déjà. Le rythme est parfait pour danser.
+                </div>
+                <div class="review-rating">8/10</div>
+            </div>
+
+            <!-- Review Card 4 -->
+            <div class="review-card">
+                <img src="https://i.pinimg.com/736x/0a/e0/96/0ae09636e6d3dc53c03aebf6f8346eca.jpg" alt="Song 4" class="review-image">
+                <div class="review-title">Titre de la musique 4</div>
+                <div class="review-description">
+                    Magnifique ballade qui touche le cœur. Parfaite pour les moments calmes.
+                </div>
+                <div class="review-rating">9/10</div>
+            </div>
+
+            <!-- Review Card 5 -->
+            <div class="review-card">
+                <img src="https://i.pinimg.com/736x/10/aa/69/10aa697962cf964c51921834ea8a8553.jpg" alt="Song 5" class="review-image">
+                <div class="review-title">Titre de la musique 5</div>
+                <div class="review-description">
+                    Un son unique qui sort de l'ordinaire. J'apprécie vraiment l'originalité.
+                </div>
+                <div class="review-rating">7/10</div>
+            </div>
+
+            <!-- Review Card 6 -->
+            <div class="review-card">
+                <img src="https://i.pinimg.com/736x/f7/95/0f/f7950fbf49fac0a1238e1ba8391b663a.jpg" alt="Song 6" class="review-image">
+                <div class="review-title">Titre de la musique 6</div>
+                <div class="review-description">
+                    Excellente production et performance vocale impressionnante. Un must-listen!
+                </div>
+                <div class="review-rating">9/10</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation entre les pages
+        function showPage(pageId) {
+            // Cacher toutes les pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Afficher la page demandée
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
