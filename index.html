@@ -75,21 +75,6 @@
             display: block;
         }
 
-        /* HOME PAGE */
-        .home-page {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .home-title {
-            font-size: 48px;
-            font-weight: bold;
-            color: black;
-        }
-
         /* ARTISTS SECTION (TOP 3 SQUARE CARDS) */
         .artists-section {
             display: flex;
@@ -314,9 +299,37 @@
     </nav>
 
     <!-- HOME PAGE -->
-    <div id="home" class="page active home-page">
-        <h1 class="home-title">Bienvenue sur HARMONEE</h1>
-        <p style="font-size: 18px; color: #666;">Découvrez et notez vos musiques préférées</p>
+    <div id="home" class="page active">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h1 style="text-align: center; font-size: 48px; font-weight: bold; color: black; margin-bottom: 60px;">Bienvenue sur HARMONEE</h1>
+            
+            <!-- 3 FEATURE CARDS EXPLICATIVES -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <!-- Card 1 -->
+                <div class="feature-card" style="margin: 0;">
+                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=250&fit=crop" alt="Personnalise ton profil" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px;">
+                    <p style="font-size: 16px; color: #333; line-height: 1.6;">
+                        Personnalise ton profile en ajoutant tes 3 sons et artistes favoris !
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="feature-card" style="margin: 0;">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop" alt="Donne ton avis" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px;">
+                    <p style="font-size: 16px; color: #333; line-height: 1.6;">
+                        Donne un avis sur 10 et met un commentaire sous chaque sons que tu ajoute à ton profile !
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="feature-card" style="margin: 0;">
+                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=400&h=250&fit=crop" alt="Suis tes amis" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px;">
+                    <p style="font-size: 16px; color: #333; line-height: 1.6;">
+                        Suis tes amis ou des célébrités pour voir quels sons ils écoutent et ce qu'ils en pensent !
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- SEARCH PAGE -->
@@ -327,8 +340,6 @@
 
     <!-- PROFILE PAGE -->
     <div id="profile" class="page">
-        <h2 class="page-title">PROFILE</h2>
-        
         <!-- TOP 3 ARTISTS (SQUARE CARDS) -->
         <div class="artists-section">
             <div class="artist-card">
@@ -353,7 +364,7 @@
             </div>
             <div class="feature-card-buttons">
                 <button class="feature-button" onclick="showPage('reviews')">REVIEWS</button>
-                <button class="feature-button" onclick="alert('Following feature coming soon!')">FOLLOWING</button>
+                <button class="feature-button" onclick="showPage('following')">FOLLOWING</button>
             </div>
         </div>
 
@@ -438,6 +449,92 @@
                     Excellente production et performance vocale impressionnante. Un must-listen!
                 </div>
                 <div class="review-rating">9/10</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOLLOWING PAGE -->
+    <div id="following" class="page">
+        <button class="back-button" onclick="showPage('profile')">← Retour au profil</button>
+        <h2 class="page-title">FOLLOWING</h2>
+        
+        <div class="reviews-grid">
+            <!-- Following Card 1 -->
+            <div class="review-card" style="text-align: center;">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Emma" class="review-image" style="border-radius: 50%; width: 150px; height: 150px; margin: 0 auto 20px;">
+                <div class="review-title">Emma</div>
+                <div class="review-description">
+                    Passionnée de rock alternatif et indie. Toujours à la recherche de nouveaux talents !
+                </div>
+                <div class="feature-card-buttons" style="margin-top: 20px;">
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Voir les reviews d\'Emma')">REVIEWS</button>
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Emma')">FOLLOWING</button>
+                </div>
+            </div>
+
+            <!-- Following Card 2 -->
+            <div class="review-card" style="text-align: center;">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Lucas" class="review-image" style="border-radius: 50%; width: 150px; height: 150px; margin: 0 auto 20px;">
+                <div class="review-title">Lucas</div>
+                <div class="review-description">
+                    Fan de hip-hop et R&B. J'adore découvrir les nouveaux albums qui sortent chaque semaine.
+                </div>
+                <div class="feature-card-buttons" style="margin-top: 20px;">
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Voir les reviews de Lucas')">REVIEWS</button>
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Lucas')">FOLLOWING</button>
+                </div>
+            </div>
+
+            <!-- Following Card 3 -->
+            <div class="review-card" style="text-align: center;">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop" alt="Sophie" class="review-image" style="border-radius: 50%; width: 150px; height: 150px; margin: 0 auto 20px;">
+                <div class="review-title">Sophie</div>
+                <div class="review-description">
+                    Amatrice de pop et électro. La musique c'est la vie, et je partage mes coups de cœur quotidiens !
+                </div>
+                <div class="feature-card-buttons" style="margin-top: 20px;">
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Voir les reviews de Sophie')">REVIEWS</button>
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Sophie')">FOLLOWING</button>
+                </div>
+            </div>
+
+            <!-- Following Card 4 -->
+            <div class="review-card" style="text-align: center;">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="Thomas" class="review-image" style="border-radius: 50%; width: 150px; height: 150px; margin: 0 auto 20px;">
+                <div class="review-title">Thomas</div>
+                <div class="review-description">
+                    Mélomane éclectique. Du jazz au metal, j'écoute tout et je note tout avec passion.
+                </div>
+                <div class="feature-card-buttons" style="margin-top: 20px;">
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Voir les reviews de Thomas')">REVIEWS</button>
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Thomas')">FOLLOWING</button>
+                </div>
+            </div>
+
+            <!-- Following Card 5 -->
+            <div class="review-card" style="text-align: center;">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" alt="Clara" class="review-image" style="border-radius: 50%; width: 150px; height: 150px; margin: 0 auto 20px;">
+                <div class="review-title">Clara</div>
+                <div class="review-description">
+                    Inconditionnelle des années 80 et 90. Nostalgie garantie dans mes playlists !
+                </div>
+                <div class="feature-card-buttons" style="margin-top: 20px;">
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Voir les reviews de Clara')">REVIEWS</button>
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Clara')">FOLLOWING</button>
+                </div>
+            </div>
+
+            <!-- Following Card 6 -->
+            <div class="review-card" style="text-align: center;">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop" alt="Nathan" class="review-image" style="border-radius: 50%; width: 150px; height: 150px; margin: 0 auto 20px;">
+                <div class="review-title">Nathan</div>
+                <div class="review-description">
+                    Producteur amateur et critique musical. J'analyse chaque son sous tous les angles techniques.
+                </div>
+                <div class="feature-card-buttons" style="margin-top: 20px;">
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Voir les reviews de Nathan')">REVIEWS</button>
+                    <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Nathan')">FOLLOWING</button>
+                </div>
             </div>
         </div>
     </div>
