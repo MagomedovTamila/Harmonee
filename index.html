@@ -559,6 +559,278 @@
             background-color: #333;
             transform: scale(1.1);
         }
+
+        /* RESPONSIVE DESIGN */
+        
+        /* Tablettes (max 768px) */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .navbar-logo {
+                font-size: 22px;
+            }
+
+            .navbar-logo-img {
+                height: 30px;
+            }
+
+            .nav-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .page {
+                padding: 20px 15px;
+            }
+
+            .page-title {
+                font-size: 28px;
+            }
+
+            .feature-card {
+                padding: 25px;
+            }
+
+            .feature-card-name {
+                font-size: 26px;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .artists-section,
+            .favorite-songs-section {
+                gap: 20px;
+            }
+
+            .artist-card,
+            .song-card {
+                width: 100%;
+            }
+
+            .review-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .review-image,
+            .song-image {
+                width: 100%;
+                height: 200px;
+                margin: 0 auto 15px;
+            }
+
+            .trending-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .trending-image {
+                width: 100%;
+                height: 200px;
+                margin-bottom: 15px;
+            }
+
+            .add-review-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 28px;
+            }
+
+            .feature-card-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .feature-button {
+                width: 100%;
+            }
+        }
+
+        /* Mobile (max 480px) */
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 12px 15px;
+            }
+
+            .navbar-logo {
+                font-size: 18px;
+                letter-spacing: 1px;
+            }
+
+            .navbar-logo-img {
+                height: 25px;
+            }
+
+            .navbar-center {
+                position: relative;
+                left: auto;
+                transform: none;
+            }
+
+            .navbar {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .nav-button {
+                padding: 8px 15px;
+                font-size: 13px;
+            }
+
+            .page {
+                padding: 15px 10px;
+            }
+
+            h1 {
+                font-size: 32px !important;
+            }
+
+            .page-title {
+                font-size: 24px;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .feature-card-name {
+                font-size: 22px;
+            }
+
+            .feature-card-description {
+                font-size: 14px;
+            }
+
+            .profile-feature-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-content {
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto 20px;
+            }
+
+            .feature-card-buttons {
+                justify-content: center;
+            }
+
+            .artists-section,
+            .favorite-songs-section {
+                grid-template-columns: 1fr;
+            }
+
+            .artist-image,
+            .song-image {
+                height: 250px;
+            }
+
+            .review-title {
+                font-size: 18px;
+            }
+
+            .review-description {
+                font-size: 13px;
+            }
+
+            .review-rating {
+                font-size: 14px;
+                padding: 6px 15px;
+            }
+
+            .trending-song-title {
+                font-size: 18px;
+            }
+
+            .trending-artist {
+                font-size: 14px;
+            }
+
+            .trending-rating {
+                font-size: 13px;
+                padding: 5px 12px;
+            }
+
+            .add-review-btn {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 24px;
+            }
+
+            .mini-add-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 18px;
+            }
+
+            .back-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .rating-option {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+
+            .form-input {
+                padding: 12px;
+                font-size: 15px;
+            }
+
+            .submit-review-btn {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        /* Pour les petits mobiles au cas où (max 360px) */
+        @media (max-width: 360px) {
+            .navbar-logo {
+                font-size: 16px;
+            }
+
+            .navbar-logo-img {
+                height: 22px;
+            }
+
+            h1 {
+                font-size: 28px !important;
+            }
+
+            .page-title {
+                font-size: 20px;
+            }
+
+            .feature-card {
+                padding: 15px;
+            }
+
+            .rating-selector {
+                gap: 5px;
+            }
+
+            .rating-option {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -569,7 +841,7 @@
             <div class="navbar-logo">HARMONEE</div>
         </div>
         <div class="navbar-center">
-            <button class="nav-button" onclick="showPage('search')">SEARCH</button>
+            <button class="nav-button" onclick="showPage('search')">CHERCHER</button>
         </div>
         <div class="navbar-right">
             <button class="nav-button" onclick="showPage('profile')">PROFILE</button>
@@ -762,15 +1034,15 @@
 
         <!-- INFORMATIONS PROFILE -->
         <div class="feature-card profile-feature-card">
-            <img src="Profile.jpg" alt="Profile" class="profile-image">
+            <img src="Mila.jpg" alt="Profile" class="profile-image">
             <div class="profile-content">
                 <div class="feature-card-name">Mila</div>
                 <div class="feature-card-description">
                     Amatrice de musique qui a beaucoup trop de sons favoris.
                 </div>
                 <div class="feature-card-buttons">
-                    <button class="feature-button" onclick="showPage('reviews')">REVIEWS</button>
-                    <button class="feature-button" onclick="showPage('following')">FOLLOWING</button>
+                    <button class="feature-button" onclick="showPage('reviews')">AVIS</button>
+                    <button class="feature-button" onclick="showPage('following')">ABONNEMENTS</button>
                 </div>
             </div>
         </div>
@@ -875,7 +1147,7 @@
     <!-- PAGE SUIVI FOLLOWING -->
     <div id="following" class="page">
         <button class="back-button" onclick="showPage('profile')">← Retour au profil</button>
-        <h2 class="page-title">FOLLOWING</h2>
+        <h2 class="page-title">ABONNEMENTS</h2>
         
         <div class="reviews-grid">
             <!-- Following 1 -->
@@ -887,8 +1159,8 @@
                         Passionnée de tout j'ai des goûts de luxe..
                     </div>
                     <div class="feature-card-buttons" style="margin-top: 10px;">
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('mounaya-reviews')">REVIEWS</button>
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Mounaya')">FOLLOWING</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('mounaya-reviews')">AVIS</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Mounaya')">ABONNEMENTS</button>
                     </div>
                 </div>
             </div>
@@ -902,8 +1174,8 @@
                         Fan de hip-hop et R&B. J'adore découvrir les nouveaux albums qui sortent chaque semaine.
                     </div>
                     <div class="feature-card-buttons" style="margin-top: 10px;">
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('lucas-reviews')">REVIEWS</button>
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Lucas')">FOLLOWING</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('lucas-reviews')">AVIS</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Lucas')">ABONNEMENTS</button>
                     </div>
                 </div>
             </div>
@@ -917,8 +1189,8 @@
                         Amatrice de pop et électro. La musique c'est la vie, et je partage mes coups de cœur quotidiens !
                     </div>
                     <div class="feature-card-buttons" style="margin-top: 10px;">
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('gabrielle-reviews')">REVIEWS</button>
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Gabrielle')">FOLLOWING</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('gabrielle-reviews')">AVIS</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Gabrielle')">ABONNEMENTS</button>
                     </div>
                 </div>
             </div>
@@ -932,8 +1204,8 @@
                         Mélomane éclectique. Du jazz au metal, j'écoute tout et je note tout avec passion.
                     </div>
                     <div class="feature-card-buttons" style="margin-top: 10px;">
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('thomas-reviews')">REVIEWS</button>
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Thomas')">FOLLOWING</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('thomas-reviews')">AVIS</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Thomas')">ABONNEMENTS</button>
                     </div>
                 </div>
             </div>
@@ -947,8 +1219,8 @@
                         Inconditionnelle des années 80 et 90. Nostalgie garantie dans mes playlists !
                     </div>
                     <div class="feature-card-buttons" style="margin-top: 10px;">
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('clara-reviews')">REVIEWS</button>
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Clara')">FOLLOWING</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('clara-reviews')">AVIS</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Clara')">ABONNEMENTS</button>
                     </div>
                 </div>
             </div>
@@ -962,8 +1234,8 @@
                         Producteur amateur et critique musical. J'analyse chaque son sous tous les angles techniques.
                     </div>
                     <div class="feature-card-buttons" style="margin-top: 10px;">
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('nathan-reviews')">REVIEWS</button>
-                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Nathan')">FOLLOWING</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="showPage('nathan-reviews')">AVIS</button>
+                        <button class="feature-button" style="padding: 10px 20px; font-size: 14px;" onclick="alert('Ne plus suivre Nathan')">ABONNEMENTS</button>
                     </div>
                 </div>
             </div>
@@ -1423,7 +1695,7 @@
             <div class="reviews-grid">
                 <!-- Review 1 - Gabrielle -->
                 <div class="review-card">
-                    <img src="Gabrielle.JPG" alt="Gabrielle" class="song-image">
+                    <img src="Gabrielle.jpg" alt="Gabrielle" class="song-image">
                     <div class="review-content">
                         <div class="review-title">Gabrielle</div>
                         <div class="review-description">
@@ -1435,7 +1707,7 @@
 
                 <!-- Review 2 - Lucas -->
                 <div class="review-card">
-                    <img src="Lucas.JPG" alt="Lucas" class="song-image">
+                    <img src="Lucas.jpg" alt="Lucas" class="song-image">
                     <div class="review-content">
                         <div class="review-title">Lucas</div>
                         <div class="review-description">
@@ -1447,7 +1719,7 @@
 
                 <!-- Review 3 - Mounaya -->
                 <div class="review-card">
-                    <img src="Mounaya.JPG" alt="Mounaya" class="song-image">
+                    <img src="Mounaya.jpg" alt="Mounaya" class="song-image">
                     <div class="review-content">
                         <div class="review-title">Mounaya</div>
                         <div class="review-description">
@@ -1481,7 +1753,7 @@
             <div class="reviews-grid">
                 <!-- Review 1 - Mila -->
                 <div class="review-card">
-                    <img src="Profile.jpg" alt="Mila" class="song-image">
+                    <img src="Mila.jpg" alt="Mila" class="song-image">
                     <div class="review-content">
                         <div class="review-title">Mila</div>
                         <div class="review-description">
@@ -1539,7 +1811,7 @@
             <div class="reviews-grid">
                 <!-- Review 1 - Mila -->
                 <div class="review-card">
-                    <img src="Profile.jpg" alt="Mila" class="song-image">
+                    <img src="Mila.jpg" alt="Mila" class="song-image">
                     <div class="review-content">
                         <div class="review-title">Mila</div>
                         <div class="review-description">
@@ -1597,7 +1869,7 @@
             <div class="reviews-grid">
                 <!-- Review 1 - Mila -->
                 <div class="review-card">
-                    <img src="Profile.jpg" alt="Mila" class="song-image">
+                    <img src="Mila.jpg" alt="Mila" class="song-image">
                     <div class="review-content">
                         <div class="review-title">Mila</div>
                         <div class="review-description">
@@ -1655,7 +1927,7 @@
             <div class="reviews-grid">
                 <!-- Review 1 - Mila -->
                 <div class="review-card">
-                    <img src="Profile.jpg" alt="Mila" class="song-image">
+                    <img src="Mila.jpg" alt="Mila" class="song-image">
                     <div class="review-content">
                         <div class="review-title">Mila</div>
                         <div class="review-description">
